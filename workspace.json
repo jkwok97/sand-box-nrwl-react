@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "expense-tracker": "apps/expense-tracker",
+    "expense-tracker-e2e": "apps/expense-tracker-e2e"
+  }
+}

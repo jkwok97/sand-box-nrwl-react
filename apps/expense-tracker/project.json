@@ -1,0 +1,72 @@
+{
+  "root": "apps/expense-tracker",
+  "sourceRoot": "apps/expense-tracker/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/expense-tracker",
+        "index": "apps/expense-tracker/src/index.html",
+        "baseHref": "/",
+        "main": "apps/expense-tracker/src/main.tsx",
+        "polyfills": "apps/expense-tracker/src/polyfills.ts",
+        "tsConfig": "apps/expense-tracker/tsconfig.app.json",
+        "assets": [
+          "apps/expense-tracker/src/favicon.ico",
+          "apps/expense-tracker/src/assets"
+        ],
+        "styles": ["apps/expense-tracker/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/expense-tracker/src/environments/environment.ts",
+              "with": "apps/expense-tracker/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "expense-tracker:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "expense-tracker:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/expense-tracker/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/expense-tracker"],
+      "options": {
+        "jestConfig": "apps/expense-tracker/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
