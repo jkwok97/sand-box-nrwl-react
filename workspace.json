@@ -1,6 +1,8 @@
 {
   "version": 2,
   "projects": {
+    "course-goal": "apps/course-goal",
+    "course-goal-e2e": "apps/course-goal-e2e",
     "expense-tracker": "apps/expense-tracker",
     "expense-tracker-e2e": "apps/expense-tracker-e2e"
   }
