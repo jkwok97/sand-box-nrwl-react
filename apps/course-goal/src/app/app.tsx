@@ -1,6 +1,6 @@
 import CourseGoalList from '../components/CourseGoals/CourseGoalList/CourseGoalList';
 import CourseInput from '../components/CourseGoals/CourseInput/CourseInput';
-import './app.module.css';
+import styles from './app.module.css';
 
 import { useState } from 'react';
 
@@ -37,10 +37,10 @@ const App = () => {
 
   return (
     <div>
-      <section id="goal-form">
+      <section className={styles.goalForm}>
         <CourseInput onAddGoal={addGoalHandler} />
       </section>
-      <section id="goals">
+      <section className={styles.goals}>
         {content}
         {/* {courseGoals.length > 0 && (
           <CourseGoalList
