@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Wrapper from '../../Helpers/Wrapper/Wrapper';
 import Button from '../../UI/Button/Button';
 import Card from '../../UI/Card/Card';
 import ErrorModal from '../../UI/ErrorModal/ErrorModal';
@@ -53,39 +54,38 @@ const AddUser = (props: AddUserProps) => {
     setError(undefined);
   };
 
-  const validContent: JSX.Element = (
-    <Card className={styles.input}>
-      <form onSubmit={onSubmitHandler}>
-        <label htmlFor="username">Username</label>
-        <input
-          id="username"
-          type="text"
-          onChange={userNameChangeHandler}
-          value={enteredUserName}
-        ></input>
+  return (
+    <Wrapper>
+      {error && (
+        <ErrorModal
+          title={error?.title}
+          message={error?.message}
+          onConfirm={errorHandler}
+        />
+      )}
+      <Card className={styles.input}>
+        <form onSubmit={onSubmitHandler}>
+          <label htmlFor="username">Username</label>
+          <input
+            id="username"
+            type="text"
+            onChange={userNameChangeHandler}
+            value={enteredUserName}
+          ></input>
 
-        <label htmlFor="userAge">Age (years)</label>
-        <input
-          id="userAge"
-          type="number"
-          onChange={userAgeChangeHandler}
-          value={enteredUserAge}
-        ></input>
+          <label htmlFor="userAge">Age (years)</label>
+          <input
+            id="userAge"
+            type="number"
+            onChange={userAgeChangeHandler}
+            value={enteredUserAge}
+          ></input>
 
-        <Button type="submit">Add User</Button>
-      </form>
-    </Card>
+          <Button type="submit">Add User</Button>
+        </form>
+      </Card>
+    </Wrapper>
   );
-
-  const invalidContent: JSX.Element = (
-    <ErrorModal
-      title={error?.title}
-      message={error?.message}
-      onConfirm={errorHandler}
-    />
-  );
-
-  return <div>{error ? invalidContent : validContent}</div>;
 };
 
 export default AddUser;
