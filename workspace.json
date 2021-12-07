@@ -5,6 +5,8 @@
     "course-goal-e2e": "apps/course-goal-e2e",
     "expense-tracker": "apps/expense-tracker",
     "expense-tracker-e2e": "apps/expense-tracker-e2e",
+    "login": "apps/login",
+    "login-e2e": "apps/login-e2e",
     "user-list": "apps/user-list",
     "user-list-e2e": "apps/user-list-e2e"
   }

@@ -8,7 +8,8 @@
     "test": "nx test",
     "expense-tracker-serve": "nx run expense-tracker:serve --port 3001",
     "course-goal-serve": "nx run course-goal:serve --port 3002",
-    "user-list-serve": "nx run user-list:serve --port 3003"
+    "user-list-serve": "nx run user-list:serve --port 3003",
+    "login-serve": "nx run login:serve --port 3004"
   },
   "private": true,
   "dependencies": {
