@@ -1,0 +1,72 @@
+{
+  "root": "apps/food-order",
+  "sourceRoot": "apps/food-order/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/food-order",
+        "index": "apps/food-order/src/index.html",
+        "baseHref": "/",
+        "main": "apps/food-order/src/main.tsx",
+        "polyfills": "apps/food-order/src/polyfills.ts",
+        "tsConfig": "apps/food-order/tsconfig.app.json",
+        "assets": [
+          "apps/food-order/src/favicon.ico",
+          "apps/food-order/src/assets"
+        ],
+        "styles": ["apps/food-order/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/food-order/src/environments/environment.ts",
+              "with": "apps/food-order/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "food-order:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "food-order:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/food-order/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/food-order"],
+      "options": {
+        "jestConfig": "apps/food-order/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
