@@ -1,26 +1,55 @@
 import Modal from 'apps/food-order/src/components/UI/Modal/Modal/Modal';
+import { CartItemDto } from 'apps/food-order/src/models';
+import CartContext from 'apps/food-order/src/store/contexts/CartContext';
+import { useContext } from 'react';
+import CartItem from '../Cart-Item/CartItem';
 import classes from './Cart.module.css';
 
-export interface CartProps {}
+export interface CartProps {
+  onHideCart: () => void;
+}
 
 const Cart = (props: CartProps) => {
+  const cartCtx = useContext(CartContext);
+
+  const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
+  const hasItems = cartCtx.items.length > 0;
+
+  const cartItemRemoveHandler = (id: string) => {
+    cartCtx.removeItem(id);
+  };
+
+  const cartItemAddHandler = (item: CartItemDto) => {
+    cartCtx.addItem({ ...item, amount: 1 });
+  };
+
   const cartItems = (
     <ul className={classes['cart-items']}>
-      {[{ id: 'c1', name: 'Sushi', amount: 2, price: 12.99 }].map((item) => (
-        <li>{item.name}</li>
+      {cartCtx.items.map((item) => (
+        <CartItem
+          key={item.id}
+          price={item.price}
+          name={item.name}
+          amount={item.amount}
+          onRemove={cartItemRemoveHandler.bind(null, item.id)}
+          onAdd={cartItemAddHandler.bind(null, item)}
+        />
       ))}
     </ul>
   );
+
   return (
-    <Modal>
+    <Modal onBackdropClick={props.onHideCart}>
       {cartItems}
       <div className={classes.total}>
         <span>Total Amount</span>
-        <span>35.62</span>
+        <span>{totalAmount}</span>
       </div>
       <div className={classes.actions}>
-        <button className={classes['button--alt']}>Close</button>
-        <button className={classes.button}>Order</button>
+        <button className={classes['button--alt']} onClick={props.onHideCart}>
+          Close
+        </button>
+        {hasItems && <button className={classes.button}>Order</button>}
       </div>
     </Modal>
   );

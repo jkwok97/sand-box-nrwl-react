@@ -1,4 +1,5 @@
 import { InputDto } from 'apps/food-order/src/models/Input.dto';
+import React from 'react';
 import classes from './Input.module.css';
 
 export interface InputProps {
@@ -6,13 +7,13 @@ export interface InputProps {
   input: InputDto;
 }
 
-const Input = (props: InputProps) => {
+const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   return (
     <div className={classes.input}>
       <label htmlFor={props.input.id}>{props.label}</label>
-      <input {...props.input}/>
+      <input {...props.input} ref={ref} />
     </div>
   );
-};
+});
 
 export default Input;

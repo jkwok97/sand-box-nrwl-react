@@ -6,6 +6,7 @@ import classes from './Modal.module.css';
 
 export interface ModalProps {
   children: ReactElement | ReactElement[];
+  onBackdropClick: () => void;
 }
 
 const portalElement: Element = document.getElementById(
@@ -15,7 +16,10 @@ const portalElement: Element = document.getElementById(
 const Modal = (props: ModalProps) => {
   return (
     <Fragment>
-      {ReactDOM.createPortal(<ModalBackdrop />, portalElement)}
+      {ReactDOM.createPortal(
+        <ModalBackdrop onBackDropClick={props.onBackdropClick} />,
+        portalElement
+      )}
       {ReactDOM.createPortal(
         <ModalOverlay>{props.children}</ModalOverlay>,
         portalElement
