@@ -11,7 +11,8 @@
     "user-list-serve": "nx run user-list:serve --port 3003",
     "login-serve": "nx run login:serve --port 3004",
     "food-order-serve": "nx run food-order:serve --port 3005",
-    "user-list-class-serve": "nx run user-list-class:serve --port 3006"
+    "user-list-class-serve": "nx run user-list-class:serve --port 3006",
+    "movies-list-serve": "nx run movies-list:serve --port 3007"
   },
   "private": true,
   "dependencies": {

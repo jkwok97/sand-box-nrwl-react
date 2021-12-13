@@ -1,0 +1,28 @@
+{
+  "root": "apps/movies-list-e2e",
+  "sourceRoot": "apps/movies-list-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/movies-list-e2e/cypress.json",
+        "devServerTarget": "movies-list:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "movies-list:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/movies-list-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["movies-list"]
+}
