@@ -1,0 +1,72 @@
+{
+  "root": "apps/user-list-class",
+  "sourceRoot": "apps/user-list-class/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/user-list-class",
+        "index": "apps/user-list-class/src/index.html",
+        "baseHref": "/",
+        "main": "apps/user-list-class/src/main.tsx",
+        "polyfills": "apps/user-list-class/src/polyfills.ts",
+        "tsConfig": "apps/user-list-class/tsconfig.app.json",
+        "assets": [
+          "apps/user-list-class/src/favicon.ico",
+          "apps/user-list-class/src/assets"
+        ],
+        "styles": ["apps/user-list-class/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/user-list-class/src/environments/environment.ts",
+              "with": "apps/user-list-class/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "user-list-class:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "user-list-class:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/user-list-class/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/user-list-class"],
+      "options": {
+        "jestConfig": "apps/user-list-class/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

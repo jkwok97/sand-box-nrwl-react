@@ -10,6 +10,8 @@
     "login": "apps/login",
     "login-e2e": "apps/login-e2e",
     "user-list": "apps/user-list",
+    "user-list-class": "apps/user-list-class",
+    "user-list-class-e2e": "apps/user-list-class-e2e",
     "user-list-e2e": "apps/user-list-e2e"
   }
 }
