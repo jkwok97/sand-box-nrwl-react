@@ -1,0 +1,72 @@
+{
+  "root": "apps/custom-hooks",
+  "sourceRoot": "apps/custom-hooks/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/custom-hooks",
+        "index": "apps/custom-hooks/src/index.html",
+        "baseHref": "/",
+        "main": "apps/custom-hooks/src/main.tsx",
+        "polyfills": "apps/custom-hooks/src/polyfills.ts",
+        "tsConfig": "apps/custom-hooks/tsconfig.app.json",
+        "assets": [
+          "apps/custom-hooks/src/favicon.ico",
+          "apps/custom-hooks/src/assets"
+        ],
+        "styles": ["apps/custom-hooks/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/custom-hooks/src/environments/environment.ts",
+              "with": "apps/custom-hooks/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "custom-hooks:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "custom-hooks:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/custom-hooks/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/custom-hooks"],
+      "options": {
+        "jestConfig": "apps/custom-hooks/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
