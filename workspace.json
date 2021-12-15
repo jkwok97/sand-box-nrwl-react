@@ -5,6 +5,8 @@
     "course-goal-e2e": "apps/course-goal-e2e",
     "custom-hooks": "apps/custom-hooks",
     "custom-hooks-e2e": "apps/custom-hooks-e2e",
+    "custom-hooks-two": "apps/custom-hooks-two",
+    "custom-hooks-two-e2e": "apps/custom-hooks-two-e2e",
     "expense-tracker": "apps/expense-tracker",
     "expense-tracker-e2e": "apps/expense-tracker-e2e",
     "food-order": "apps/food-order",
