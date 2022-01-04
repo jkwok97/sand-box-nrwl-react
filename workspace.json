@@ -2,24 +2,14 @@
   "version": 2,
   "projects": {
     "course-goal": "apps/course-goal",
-    "course-goal-e2e": "apps/course-goal-e2e",
     "custom-hooks": "apps/custom-hooks",
-    "custom-hooks-e2e": "apps/custom-hooks-e2e",
     "custom-hooks-two": "apps/custom-hooks-two",
-    "custom-hooks-two-e2e": "apps/custom-hooks-two-e2e",
     "expense-tracker": "apps/expense-tracker",
-    "expense-tracker-e2e": "apps/expense-tracker-e2e",
     "food-order": "apps/food-order",
-    "food-order-e2e": "apps/food-order-e2e",
     "forms": "apps/forms",
-    "forms-e2e": "apps/forms-e2e",
     "login": "apps/login",
-    "login-e2e": "apps/login-e2e",
     "movies-list": "apps/movies-list",
-    "movies-list-e2e": "apps/movies-list-e2e",
     "user-list": "apps/user-list",
-    "user-list-class": "apps/user-list-class",
-    "user-list-class-e2e": "apps/user-list-class-e2e",
-    "user-list-e2e": "apps/user-list-e2e"
+    "user-list-class": "apps/user-list-class"
   }
 }
