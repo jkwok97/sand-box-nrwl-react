@@ -9,6 +9,7 @@
     "forms": "apps/forms",
     "login": "apps/login",
     "movies-list": "apps/movies-list",
+    "redux-counter": "apps/redux-counter",
     "user-list": "apps/user-list",
     "user-list-class": "apps/user-list-class"
   }

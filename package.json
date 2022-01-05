@@ -15,7 +15,8 @@
     "movies-list-serve": "nx run movies-list:serve --port 3007",
     "custom-hooks-serve": "nx run custom-hooks:serve --port 3008",
     "custom-hooks-two-serve": "nx run custom-hooks-two:serve --port 3009",
-    "forms-serve": "nx run forms:serve --port 3010"
+    "forms-serve": "nx run forms:serve --port 3010",
+    "redux-counter-serve": "nx run redux-counter:serve --port 3011"
   },
   "private": true,
   "dependencies": {
