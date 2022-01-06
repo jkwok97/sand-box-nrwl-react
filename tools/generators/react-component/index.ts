@@ -20,10 +20,11 @@ interface Schema {
 export default async function (tree: Tree, options: Schema) {
   const sourceRoot = getSourceRoot(tree, options);
   const name = names(options.name);
+  console.log(name);
   generateFiles(
     tree,
     path.join(__dirname, 'files'),
-    path.join(`${sourceRoot}/${options.directory}`, name.propertyName),
+    path.join(`${sourceRoot}/${options.directory}`, name.className),
     name
   );
   addExportsToBarrel(tree, options);

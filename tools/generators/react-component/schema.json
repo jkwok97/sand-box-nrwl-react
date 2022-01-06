@@ -22,7 +22,7 @@
     },
     "directory": {
       "type": "string",
-      "description": "The directory wanted",
+      "description": "The directory name under source",
       "alias": "dir",
       "$default": {
         "$source": "argv"
