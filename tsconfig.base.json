@@ -14,7 +14,13 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@kraken-ui-web/test-button": [
+        "libs/kraken-ui-web/test-button/src/index.ts"
+      ],
+      "@kraken-ui-web/test-card": ["libs/kraken-ui-web/test-card/src/index.ts"],
+      "@kraken-ui-web/testing": ["libs/kraken-ui-web/testing/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -1,0 +1,44 @@
+{
+  "root": "libs/kraken-ui-web/test-button",
+  "sourceRoot": "libs/kraken-ui-web/test-button/src",
+  "projectType": "library",
+  "tags": ["KrakenUIWeb"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/kraken-ui-web/test-button",
+        "tsConfig": "libs/kraken-ui-web/test-button/tsconfig.lib.json",
+        "project": "libs/kraken-ui-web/test-button/package.json",
+        "entryFile": "libs/kraken-ui-web/test-button/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "assets": [
+          {
+            "glob": "libs/kraken-ui-web/test-button/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/kraken-ui-web/test-button/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/kraken-ui-web/test-button"],
+      "options": {
+        "jestConfig": "libs/kraken-ui-web/test-button/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

@@ -2,13 +2,13 @@
 
 import { render, cleanup } from '@testing-library/react';
 
-import <%= className %> from './<%= className %>';
+import TestCard from './test-card';
 
-describe('<%= className %>', () => {
+describe('TestCard', () => {
   afterEach(cleanup);
 
   it('should render successfully', () => {
-    const { baseElement } = render(<<%= className %> />);
+    const { baseElement } = render(<TestCard />);
     expect(baseElement).toBeTruthy();
   });
 });

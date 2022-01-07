@@ -17,7 +17,7 @@
       "description": "The name of the project.",
       "alias": "p",
       "$default": {
-        "$source": "projectName"
+        "$source": "argv"
       }
     },
     "directory": {
@@ -29,5 +29,5 @@
       }
     }
   },
-  "required": ["name", "project", "directory"]
+  "required": ["name", "directory"]
 }

@@ -1,0 +1,33 @@
+{
+  "root": "libs/kraken-ui-web/test-card",
+  "sourceRoot": "libs/kraken-ui-web/test-card/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/workspace:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/kraken-ui-web/test-card",
+        "main": "libs/kraken-ui-web/test-card/src/index.ts",
+        "tsConfig": "libs/kraken-ui-web/test-card/tsconfig.lib.json",
+        "assets": ["libs/kraken-ui-web/test-card/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/kraken-ui-web/test-card/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/kraken-ui-web/test-card"],
+      "options": {
+        "jestConfig": "libs/kraken-ui-web/test-card/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["kraken-ui-web"]
+}

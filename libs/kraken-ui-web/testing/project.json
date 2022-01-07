@@ -1,0 +1,42 @@
+{
+  "root": "libs/kraken-ui-web/testing",
+  "sourceRoot": "libs/kraken-ui-web/testing/src",
+  "projectType": "library",
+  "tags": ["kraken-ui-web"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/kraken-ui-web/testing",
+        "tsConfig": "libs/kraken-ui-web/testing/tsconfig.lib.json",
+        "project": "libs/kraken-ui-web/testing/package.json",
+        "entryFile": "libs/kraken-ui-web/testing/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "assets": [
+          {
+            "glob": "libs/kraken-ui-web/testing/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/kraken-ui-web/testing/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/kraken-ui-web/testing"],
+      "options": {
+        "jestConfig": "libs/kraken-ui-web/testing/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

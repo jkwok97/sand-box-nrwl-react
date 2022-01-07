@@ -17,23 +17,33 @@ interface Schema {
   directory: string;
 }
 
-export default async function (tree: Tree, options: Schema) {
+export default async function createReactComponent(
+  tree: Tree,
+  options: Schema
+) {
   const sourceRoot = getSourceRoot(tree, options);
   const name = names(options.name);
-  console.log(name);
   generateFiles(
     tree,
     path.join(__dirname, 'files'),
     path.join(`${sourceRoot}/${options.directory}`, name.className),
     name
   );
+
   addExportsToBarrel(tree, options);
 
   await formatFiles(tree);
 }
 
 function getSourceRoot(tree: Tree, options: Schema) {
-  const sourceRoot = readProjectConfiguration(tree, options.project).sourceRoot;
+  let sourceRoot;
+
+  if (options.project) {
+    sourceRoot = readProjectConfiguration(tree, options.project).sourceRoot;
+  } else {
+    sourceRoot = 'libs';
+  }
+
   if (!sourceRoot) {
     throw new Error('Project source root not found');
   }
@@ -43,7 +53,6 @@ function getSourceRoot(tree: Tree, options: Schema) {
 function addExportsToBarrel(tree: Tree, options: Schema) {
   const sourceRoot = getSourceRoot(tree, options);
   const name = names(options.name);
-  console.log(name);
   const indexFilePath = joinPathFragments(`${sourceRoot}/lib`, 'index.ts');
   const buffer = tree.read(indexFilePath);
   if (!!buffer) {
