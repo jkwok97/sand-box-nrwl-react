@@ -19,7 +19,7 @@ export default async function createKrakenUIWebLib(
   const reactComponentOptions = {
     name: options.name,
     project: null,
-    directory: `Kraken-UI-Web/${options.name}/src/lib/components/`,
+    directory: `kraken-ui-web/${options.name}/src/lib/components/`,
   };
 
   const reactLibSchema: NormalizedSchema = {

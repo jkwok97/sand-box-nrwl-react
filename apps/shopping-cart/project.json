@@ -1,0 +1,72 @@
+{
+  "root": "apps/shopping-cart",
+  "sourceRoot": "apps/shopping-cart/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/shopping-cart",
+        "index": "apps/shopping-cart/src/index.html",
+        "baseHref": "/",
+        "main": "apps/shopping-cart/src/main.tsx",
+        "polyfills": "apps/shopping-cart/src/polyfills.ts",
+        "tsConfig": "apps/shopping-cart/tsconfig.app.json",
+        "assets": [
+          "apps/shopping-cart/src/favicon.ico",
+          "apps/shopping-cart/src/assets"
+        ],
+        "styles": ["apps/shopping-cart/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/shopping-cart/src/environments/environment.ts",
+              "with": "apps/shopping-cart/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "shopping-cart:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "shopping-cart:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/shopping-cart/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/shopping-cart"],
+      "options": {
+        "jestConfig": "apps/shopping-cart/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

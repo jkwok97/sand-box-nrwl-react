@@ -13,6 +13,7 @@
     "login": "apps/login",
     "movies-list": "apps/movies-list",
     "redux-counter": "apps/redux-counter",
+    "shopping-cart": "apps/shopping-cart",
     "user-list": "apps/user-list",
     "user-list-class": "apps/user-list-class"
   }
