@@ -1,4 +1,4 @@
-import CartButton from '../Cart/CartButton';
+import CartButton from '../Cart/Cart-Button/CartButton';
 import classes from './MainHeader.module.css';
 
 const MainHeader = (props) => {

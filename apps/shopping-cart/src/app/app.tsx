@@ -1,12 +1,15 @@
-import Cart from '../components/Cart/Cart';
+import { useSelector } from 'react-redux';
+import Products from '../components/Shop/Products/Products';
+import Cart from '../components/Cart/Cart/Cart';
 import Layout from '../components/Layout/Layout';
-import Products from '../components/Shop/Products';
 import styles from './app.module.css';
 
 export function App() {
+  const showCart = useSelector((state: any) => state.ui.cartIsVisible);
+
   return (
     <Layout>
-      <Cart />
+      {showCart && <Cart />}
       <Products />
     </Layout>
   );
