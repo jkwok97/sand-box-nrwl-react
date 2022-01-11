@@ -4,4 +4,5 @@ export interface CartStateDto {
   items: CartItemDto[];
   totalQuantity: number;
   totalAmount: number;
+  changed: boolean;
 }

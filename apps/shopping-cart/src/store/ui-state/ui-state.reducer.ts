@@ -3,6 +3,7 @@ import { UIStateDto } from '../../models';
 
 const initialState: UIStateDto = {
   cartIsVisible: false,
+  notification: null,
 };
 
 const UiStateReducer = createSlice({
@@ -11,6 +12,13 @@ const UiStateReducer = createSlice({
   reducers: {
     toggle(state) {
       state.cartIsVisible = !state.cartIsVisible;
+    },
+    showNotification(state, action) {
+      state.notification = {
+        status: action.payload.status,
+        title: action.payload.title,
+        message: action.payload.message,
+      };
     },
   },
 });

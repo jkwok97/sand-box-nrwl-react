@@ -1,11 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, EnhancedStore } from '@reduxjs/toolkit';
 import CartStateReducer from './cart-state/cart-state.reducer';
 import UiStateReducer from './ui-state/ui-state.reducer';
 
-const AppStore = configureStore({
+const AppStore: EnhancedStore = configureStore({
   reducer: {
     ui: UiStateReducer.reducer,
-    cart: CartStateReducer.reducer
+    cart: CartStateReducer.reducer,
   },
 });
 
