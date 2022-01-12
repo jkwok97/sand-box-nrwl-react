@@ -17,7 +17,8 @@
     "custom-hooks-two-serve": "nx run custom-hooks-two:serve --port 3009",
     "forms-serve": "nx run forms:serve --port 3010",
     "redux-counter-serve": "nx run redux-counter:serve --port 3011",
-    "shopping-cart-serve": "nx run shopping-cart:serve --port 3012"
+    "shopping-cart-serve": "nx run shopping-cart:serve --port 3012",
+    "routing-tutorial-serve": "nx run routing-tutorial:serve --port 3013"
   },
   "private": true,
   "dependencies": {
@@ -26,6 +27,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-redux": "^7.2.6",
+    "react-router-dom": "5.3.0",
     "redux": "^4.1.2",
     "regenerator-runtime": "0.13.7",
     "tslib": "^2.0.0"
@@ -47,6 +49,7 @@
     "@types/node": "14.14.33",
     "@types/react": "17.0.30",
     "@types/react-dom": "17.0.9",
+    "@types/react-router-dom": "5.3.1",
     "@typescript-eslint/eslint-plugin": "~4.33.0",
     "@typescript-eslint/parser": "~4.33.0",
     "babel-jest": "27.2.3",

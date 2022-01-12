@@ -1,0 +1,72 @@
+{
+  "root": "apps/routing-tutorial",
+  "sourceRoot": "apps/routing-tutorial/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/routing-tutorial",
+        "index": "apps/routing-tutorial/src/index.html",
+        "baseHref": "/",
+        "main": "apps/routing-tutorial/src/main.tsx",
+        "polyfills": "apps/routing-tutorial/src/polyfills.ts",
+        "tsConfig": "apps/routing-tutorial/tsconfig.app.json",
+        "assets": [
+          "apps/routing-tutorial/src/favicon.ico",
+          "apps/routing-tutorial/src/assets"
+        ],
+        "styles": ["apps/routing-tutorial/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/routing-tutorial/src/environments/environment.ts",
+              "with": "apps/routing-tutorial/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "routing-tutorial:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "routing-tutorial:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/routing-tutorial/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/routing-tutorial"],
+      "options": {
+        "jestConfig": "apps/routing-tutorial/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
