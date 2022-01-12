@@ -47,6 +47,12 @@
         "pascalCaseFiles": true,
         "component": false
       }
+    },
+    "@nrwl/next": {
+      "application": {
+        "style": "css",
+        "linter": "eslint"
+      }
     }
   },
   "defaultProject": "expense-tracker"

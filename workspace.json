@@ -12,6 +12,7 @@
     "kraken-ui-web-testing": "libs/kraken-ui-web/testing",
     "login": "apps/login",
     "movies-list": "apps/movies-list",
+    "next-tutorial": "apps/next-tutorial",
     "redux-counter": "apps/redux-counter",
     "routing-tutorial": "apps/routing-tutorial",
     "shopping-cart": "apps/shopping-cart",
