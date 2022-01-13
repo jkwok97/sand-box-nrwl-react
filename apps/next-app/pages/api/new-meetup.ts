@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb';
 
 // /api/new-meetup
-
+//THIS DOES NOT WORK ANYMORE, CHANGED USER & PASSWORD
 const connection =
   'mongodb+srv://jeff-tutorial:u8K9VRLyRQ3oToi8@cluster0.wjcwv.mongodb.net/meetups?retryWrites=true&w=majority';
 

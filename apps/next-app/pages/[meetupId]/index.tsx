@@ -9,6 +9,14 @@ interface MeetupDetailProps {
   meetupData: MeetupDto;
 }
 
+interface MeetupDtoFromMongo {
+  _id: ObjectId;
+  title: string;
+  address: string;
+  description: string;
+  image: string;
+}
+
 const MeetupDetail = (props: MeetupDetailProps) => {
   return (
     <MeetupDetails
@@ -28,9 +36,11 @@ export async function getStaticPaths() {
 
   const db = client.db();
 
-  const meetupsCollection = db.collection('meetups');
+  const meetupsCollection = db.collection<MeetupDtoFromMongo>('meetups');
 
-  const meetups = await meetupsCollection.find({}, { _id: 1 }).toArray();
+  const meetups = await meetupsCollection.find().toArray();
+
+  console.log(meetups);
 
   client.close();
 
@@ -51,6 +61,7 @@ export async function getStaticProps(context) {
 
   console.log(meetupId);
 
+  //THIS DOES NOT WORK ANYMORE, CHANGED USER & PASSWORD
   const connection =
     'mongodb+srv://jeff-tutorial:u8K9VRLyRQ3oToi8@cluster0.wjcwv.mongodb.net/meetups?retryWrites=true&w=majority';
 
