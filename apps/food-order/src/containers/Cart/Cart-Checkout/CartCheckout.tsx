@@ -1,3 +1,4 @@
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { UserDataDto } from 'apps/food-order/src/models';
 import { FormEvent, useRef, useState } from 'react';
 import classes from './CartCheckout.module.css';

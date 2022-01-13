@@ -19,13 +19,15 @@
     "redux-counter-serve": "nx run redux-counter:serve --port 3011",
     "shopping-cart-serve": "nx run shopping-cart:serve --port 3012",
     "routing-tutorial-serve": "nx run routing-tutorial:serve --port 3013",
-    "next-tutorial-serve": "nx run next-tutorial:serve --port 3014"
+    "next-tutorial-serve": "nx run next-tutorial:serve --port 3014",
+    "next-app-serve": "nx run next-app:serve --port 3015"
   },
   "private": true,
   "dependencies": {
     "@nrwl/next": "^13.4.4",
     "@reduxjs/toolkit": "^1.7.1",
     "core-js": "^3.6.5",
+    "mongodb": "^4.3.0",
     "next": "12.0.7",
     "react": "17.0.2",
     "react-dom": "17.0.2",
