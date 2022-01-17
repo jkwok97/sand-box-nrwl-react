@@ -5,7 +5,7 @@ import styled from 'styled-components';
 /* eslint-disable-next-line */
 export interface <%= className %>Props {}
 
-const <%= className %> = styled.div`
+const Styled<%= className %> = styled.div`
   color: pink;
 `;
 

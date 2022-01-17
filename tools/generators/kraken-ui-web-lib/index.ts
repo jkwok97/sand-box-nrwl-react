@@ -1,10 +1,16 @@
 import {
   Tree,
   formatFiles,
-  installPackagesTask
+  installPackagesTask,
+  generateFiles,
+  readProjectConfiguration,
+  joinPathFragments,
 } from '@nrwl/devkit';
 import { Linter } from '@nrwl/linter';
-import { libraryGenerator, NormalizedSchema } from '@nrwl/react/src/generators/library/library';
+import {
+  libraryGenerator,
+  NormalizedSchema,
+} from '@nrwl/react/src/generators/library/library';
 
 import createReactComponent from '../react-component';
 
@@ -33,7 +39,7 @@ export default async function createKrakenUIWebLib(
     projectRoot: '',
     routePath: '',
     parsedTags: [],
-    style: 'css',
+    style: 'styled-components',
     skipTsConfig: false,
     skipFormat: false,
     unitTestRunner: 'jest',
@@ -41,9 +47,17 @@ export default async function createKrakenUIWebLib(
     component: false,
     strict: true,
     pascalCaseFiles: true,
-  }
+  };
 
   await libraryGenerator(tree, reactLibSchema);
+
+  generateFiles(
+    tree,
+    joinPathFragments(__dirname, './files'),
+    `libs/kraken-ui-web/${options.name}`,
+    options
+  );
+
   await createReactComponent(tree, reactComponentOptions);
   await formatFiles(tree);
   return () => {

@@ -9,6 +9,7 @@
     "forms": "apps/forms",
     "kraken-ui-web-test-button": "libs/kraken-ui-web/test-button",
     "kraken-ui-web-test-card": "libs/kraken-ui-web/test-card",
+    "kraken-ui-web-test123": "libs/kraken-ui-web/test123",
     "kraken-ui-web-testing": "libs/kraken-ui-web/testing",
     "login": "apps/login",
     "movies-list": "apps/movies-list",
